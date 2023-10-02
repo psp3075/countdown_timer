@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import "./App.css";
+import Wrapper from "./Wrapper";
 function App() {
+  const [duration, setDuration] = useState(0);
+  const onExpire = () => {
+    alert("time over");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Enter time in seconds </p>
+      <input
+        type="number"
+        onChange={(e) =>
+          setTimeout(() => {
+            setDuration(e.target.value);
+          }, 3000)
+        }
+      />
+      {duration > 0 && <Wrapper onExpire={onExpire} duration={duration} />}
     </div>
   );
 }
