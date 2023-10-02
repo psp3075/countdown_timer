@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <p>Enter time in seconds </p>
+      <p>Enter time in milliseconds </p>
       <input
         type="number"
         onChange={(e) =>
